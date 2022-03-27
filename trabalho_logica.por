@@ -20,26 +20,31 @@ programa
 
 		enquanto(interacaoUsuario != 0){
 
-			escreva("Escolha uma das opÁıes abaixo para continuar.\n\n",
+			escreva("Escolha uma das op√ß√µes abaixo para continuar.\n\n",
 					"1 - Reservar um assento.\n",
 					"2 - Consultar assentos reservados.\n",
 					"0 - Finalizar o sistema.\nDigite aqui: ")
-			leia(interacaoUsuario)
 			
+			leia(interacaoUsuario)
+			limpa()
 			escreva("\n")
 				
 			se(interacaoUsuario == 1){
-
 				escreva("Numero da fileira:")
 				leia(numeroFileira)
+				numeroFileira--
 				escreva("Numero da Poltrona:")
 				leia(numeroPoltrona)
+				numeroPoltrona--
+				limpa()
 					
-				se(numeroFileira >= 10 ou numeroPoltrona >= 12 ou numeroFileira < 0 ou numeroPoltrona < 0) {
-				    escreva("Poltrona inv·lida.\n\nTente novamente\n")
+				se(numeroFileira < 0 ou numeroFileira >= 10) {
+				    escreva("Fileira inv√°lida. Tente novamente\n")
+				}senao se(numeroPoltrona < 0 ou numeroPoltrona >= 12){
+					escreva("Poltrona inv√°lida. Tente novamente\n")
 				}senao{
 				    se(matriz[numeroFileira][numeroPoltrona]==1){
-					    escreva("Este assento j· est· reservado:\n\n")
+					    escreva("Este assento j√° est√° reservado:\n\n")
 					
 				    }senao{
 					    matriz[numeroFileira][numeroPoltrona]=1
@@ -62,7 +67,7 @@ programa
 				escreva("Sistema finalizado.\n\n")
 					
 			}senao{
-				escreva("OpÁ„o desejada È inv·lida.\n\n")
+				escreva("Op√ß√£o desejada √© inv√°lida.\n\n")
 			}
 		}
 	}
